@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import SelectMountain from './SelectMountain';
+import MountainDetails from './MountainDetails'
 
 export default function Mountains() {
     const [mountains, setMountains] = useState([]);
-    const [selectedMountain, setselectedMountain] = useState(null);
+    const [selectedMountain, setSelectedMountain] = useState(null);
 
     useEffect(() => {
         const path = "/assets/data/mountains.json"
@@ -15,14 +16,14 @@ export default function Mountains() {
             })
     }, []);
 
-    function compare(a,b){
-        if ( a.name < b.name ){
+    function compare(a, b) {
+        if (a.name < b.name) {
             return -1;
-          }
-          if ( a.name > b.name ){
+        }
+        if (a.name > b.name) {
             return 1;
-          }
-          return 0;
+        }
+        return 0;
     };
 
     mountains.sort(compare);
@@ -39,15 +40,19 @@ export default function Mountains() {
             <form>
                 <select onChange={(e) => {
                     const m = mountains?.find((x) => x.name === e.target.value);
-                    setselectedMountain(m);
+                    setSelectedMountain(m);
                 }
                 }>
-                <SelectMountain mountains = {mountains}/>
+                    <SelectMountain mountains={mountains} />
                 </select>
 
             </form>
 
 
+ 
+       <MountainDetails  selectedMountain={selectedMountain} />
+
+        
         </div>
     )
 }
