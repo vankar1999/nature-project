@@ -9,7 +9,7 @@ export default function MountainDetails ({selectedMountain}) {
             <p> Name: {selectedMountain.name}</p>
             <p> Elevation: {selectedMountain.elevation}</p>
             <p> Description: {selectedMountain.desc}</p>
-            <img src={`/assets/images/mountains/${selectedMountain.img}`} />
+            <img src={`/assets/images/mountains/${selectedMountain.img}`} alt={`picture of ${selectedMountain.name}`} />
         </div>
         : null}
         </>
