@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LocationState from './LocationState';
 
 
 
@@ -61,14 +62,21 @@ export default function Parks() {
         {
           selectedCategory === 'By location' ? 
           <div>
-            {locations}
+            <form>
+            <select>
+                 {<LocationState locations={locations}/>} 
+            </select>
+            </form>
           </div>
           : null
         }
         {
           selectedCategory === 'By park type' ? 
           <div>
-            {parkTypes}
+            <select>
+                <option>{parkTypes}</option>
+            </select>
+            
           </div>
           : null
         }
