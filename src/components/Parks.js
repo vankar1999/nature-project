@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LocationState from './LocationState';
+import ParkTypes from './ParkTypes';
 
 
 
@@ -74,7 +75,7 @@ export default function Parks() {
           selectedCategory === 'By park type' ? 
           <div>
             <select>
-                <option>{parkTypes}</option>
+            {<ParkTypes parkTypes={parkTypes}/>}
             </select>
             
           </div>
