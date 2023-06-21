@@ -12,3 +12,19 @@ img{
 h1{
   text-align: center;
 }
+
+#mtnsSearchContainer {
+  /* background-image: url(/images/Liberty-StoryImage_2.jpg); */
+  background-image: url(/hero-image.jpg);
+  height: 500px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Rajdhani', sans-serif;
+  color: black;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: -webkit-fill-available;
+}
