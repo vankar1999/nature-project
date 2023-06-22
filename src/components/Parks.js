@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import LocationState from './LocationState';
 import ParkTypes from './ParkTypes';
 import ParkDetails from './ParkDetails';
+import ParkDetailsByType from './ParkDetailsByType';
 
 
 
@@ -10,7 +11,9 @@ export default function Parks() {
   const [parkTypes, setParkTypes] = useState([]);
   const [nationalParks, setNationalParks] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [selectedLocation, setSelectedLocation] = useState([null]);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [selectedType, setSelectedType] = useState(null);
+  
 
   //fetching the locations
   useEffect(() => {
@@ -73,7 +76,7 @@ export default function Parks() {
                 {<LocationState locations={locations} />}
               </select>
             </form>
-            {selectedLocation ? <ParkDetails selectedLocation = {selectedLocation} nationalParks = {nationalParks}/> : null
+            {selectedLocation ? <ParkDetails selectedLocation = {selectedLocation}   nationalParks = {nationalParks}/> : null
           }
           </div>
           : null
@@ -81,9 +84,16 @@ export default function Parks() {
       {
         selectedCategory === 'By park type' ?
           <div>
-            <select>
-              {<ParkTypes parkTypes={parkTypes} />}
-            </select>
+            <form>
+              <select onChange={(e) => {
+                const t = parkTypes?.find((x) => x === e.target.value);
+                setSelectedType(t);
+              }}>
+                {<ParkTypes parkTypes={parkTypes} />} 
+              </select>
+            </form>
+            {selectedType ? <ParkDetailsByType selectedType = {selectedType} nationalParks = {nationalParks}/> : null
+          }
 
           </div>
           : null
