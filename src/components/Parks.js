@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LocationState from './LocationState';
 import ParkTypes from './ParkTypes';
-import ParkDetails from './ParkDetails';
+import ParkDetailsByLoc from './ParkDetailsByLoc';
 import ParkDetailsByType from './ParkDetailsByType';
 
 
@@ -76,7 +76,7 @@ export default function Parks() {
                 {<LocationState locations={locations} />}
               </select>
             </form>
-            {selectedLocation ? <ParkDetails selectedLocation = {selectedLocation}   nationalParks = {nationalParks}/> : null
+            {selectedLocation ? <ParkDetailsByLoc selectedLocation = {selectedLocation}   nationalParks = {nationalParks}/> : null
           }
           </div>
           : null

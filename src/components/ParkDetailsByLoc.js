@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import LocationState from './LocationState';
 
-export default function ParkDetails({ selectedLocation, nationalParks}) {
+export default function ParkDetailsByLoc({ selectedLocation, nationalParks}) {
     const parkByLocation = nationalParks.filter(park => park.State === selectedLocation);
     
  console.log(parkByLocation);
