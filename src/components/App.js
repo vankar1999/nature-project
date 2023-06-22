@@ -31,8 +31,8 @@ function App() {
 
   return (
     <div>
+      <NavbarComp  handleHome={handleHome} handleMountains={handleMountains} handleParks={handleParks} /> 
       <div className="Scenic1 container" id="mtnsSearchContainer">   
-        <NavbarComp  handleHome={handleHome} handleMountains={handleMountains} handleParks={handleParks} /> 
         <h1>Outdoor Advocate Society</h1>
         {/* <HeroImage /> */}
         
