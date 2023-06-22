@@ -1,94 +1,101 @@
 import React, { useState, useEffect } from 'react';
 import LocationState from './LocationState';
 import ParkTypes from './ParkTypes';
+import ParkDetails from './ParkDetails';
 
 
 
 export default function Parks() {
-    const [locations, setLocations] = useState([]);
-    const [parkTypes, setParkTypes] = useState([]);
-    const [nationalParks, setNationalParks] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState(null);
- 
-    //fetching the locations
-    useEffect(() => {
-      const path = "/assets/data/locations.json"
+  const [locations, setLocations] = useState([]);
+  const [parkTypes, setParkTypes] = useState([]);
+  const [nationalParks, setNationalParks] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedLocation, setSelectedLocation] = useState([null]);
 
-      fetch(path)
-          .then(locationsResponse => locationsResponse.json())
-          .then(data => {
-              setLocations(data);
-          })
-    }, []);
+  //fetching the locations
+  useEffect(() => {
+    const path = "/assets/data/locations.json"
 
-    //fetching the park types
-    useEffect(() => {
-      const path = "/assets/data/parkTypes.json"
+    fetch(path)
+      .then(locationsResponse => locationsResponse.json())
+      .then(data => {
+        setLocations(data);
+      })
+  }, []);
 
-      fetch(path)
-          .then(parkTypesResponse => parkTypesResponse.json())
-          .then(data => {
-              setParkTypes(data);
-          })
-    }, []);
+  //fetching the park types
+  useEffect(() => {
+    const path = "/assets/data/parkTypes.json"
 
-    //fetching the national parks
-    useEffect(() => {
-      const path = "/assets/data/nationalparks.json"
+    fetch(path)
+      .then(parkTypesResponse => parkTypesResponse.json())
+      .then(data => {
+        setParkTypes(data);
+      })
+  }, []);
 
-      fetch(path)
-          .then(nationalParksResponse => nationalParksResponse.json())
-          .then(data => {
-              setNationalParks(data.parks);
-          })
-    }, []);
+  //fetching the national parks
+  useEffect(() => {
+    const path = "/assets/data/nationalparks.json"
 
-    const categories = ['By park type','By location'];
-    console.log(parkTypes, locations, nationalParks);
+    fetch(path)
+      .then(nationalParksResponse => nationalParksResponse.json())
+      .then(data => {
+        setNationalParks(data.parks);
+      })
+  }, []);
 
-    return (
-      <div>
-        <h1>National Parks</h1>
-        <form>
-          <select onChange={(e) => {
-                    const c = categories?.find((x) => x === e.target.value);
-                    setSelectedCategory(c);
-                }}>
-            <option disabled="" value="">Select one</option>
-            {categories.map(category => (
-              <option key={category} value={category}>{category}</option>
-            ))}
-          </select>
-        </form>
-        {
-          selectedCategory === 'By location' ? 
+  const categories = ['By park type', 'By location'];
+  // console.log(parkTypes, locations, nationalParks);
+
+  return (
+    <div>
+      <h1>National Parks</h1>
+      <form>
+        <select onChange={(e) => {
+          const c = categories?.find((x) => x === e.target.value);
+          setSelectedCategory(c);
+        }}>
+          <option disabled="" value="">Select one</option>
+          {categories.map(category => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+      </form>
+      {
+        selectedCategory === 'By location' ?
           <div>
             <form>
-            <select>
-                 {<LocationState locations={locations}/>} 
-            </select>
+              <select onChange={(e) => {
+                const l = locations?.find((x) => x === e.target.value);
+                setSelectedLocation(l);
+              }}>
+                {<LocationState locations={locations} />}
+              </select>
             </form>
+            {selectedLocation ? <ParkDetails selectedLocation = {selectedLocation} nationalParks = {nationalParks}/> : null
+          }
           </div>
           : null
-        }
-        {
-          selectedCategory === 'By park type' ? 
+      }
+      {
+        selectedCategory === 'By park type' ?
           <div>
             <select>
-            {<ParkTypes parkTypes={parkTypes}/>}
+              {<ParkTypes parkTypes={parkTypes} />}
             </select>
-            
+
           </div>
           : null
-        }
-      </div>
-    );
+      }
+    </div>
+  );
 
-  }
+}
 
-  /*Next steps
+/*Next steps
 1. create drops downs for list of park types and location
 2. create separate arrays for parks that match whatever is selected from the parktype array AND an array for parks that match whatever is selected from the locations array
 a. for the filtered parkType array, we want to filter by if the parkName includes the value that is selected from the parkType array
 b. for the filtered locations array, we want to fitler by if the state == selected location 
-  */
+*/
