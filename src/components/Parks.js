@@ -3,6 +3,7 @@ import LocationState from './LocationState';
 import ParkTypes from './ParkTypes';
 import ParkDetailsByLoc from './ParkDetailsByLoc';
 import ParkDetailsByType from './ParkDetailsByType';
+import ParkDetailsByAll from './ParkDetailsByAll';
 
 
 
@@ -48,7 +49,7 @@ export default function Parks() {
       })
   }, []);
 
-  const categories = ['By park type', 'By location'];
+  const categories = ['By park type', 'By location', 'By All'];
   // console.log(parkTypes, locations, nationalParks);
 
   return (
@@ -96,6 +97,14 @@ export default function Parks() {
           }
 
           </div>
+          : null
+      }
+      {
+        selectedCategory === 'By All' ?
+          <div>
+            {<ParkDetailsByAll nationalParks = {nationalParks}/>
+          }
+        </div>
           : null
       }
     </div>
