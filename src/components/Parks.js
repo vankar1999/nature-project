@@ -49,8 +49,7 @@ export default function Parks() {
       })
   }, []);
 
-  const categories = ['By park type', 'By location', 'By All'];
-  // console.log(parkTypes, locations, nationalParks);
+  const categories = ['By park type', 'By location', 'By all parks'];
 
   return (
     <div>
@@ -100,7 +99,7 @@ export default function Parks() {
           : null
       }
       {
-        selectedCategory === 'By All' ?
+        selectedCategory === 'By all parks' ?
           <div>
             {<ParkDetailsByAll nationalParks = {nationalParks}/>
           }
@@ -111,10 +110,3 @@ export default function Parks() {
   );
 
 }
-
-/*Next steps
-1. create drops downs for list of park types and location
-2. create separate arrays for parks that match whatever is selected from the parktype array AND an array for parks that match whatever is selected from the locations array
-a. for the filtered parkType array, we want to filter by if the parkName includes the value that is selected from the parkType array
-b. for the filtered locations array, we want to fitler by if the state == selected location 
-*/

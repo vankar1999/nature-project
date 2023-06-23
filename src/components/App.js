@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useState } from 'react';
-import HeroImage from './HeroImage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavbarComp from './NavbarComp';
 import CurrentPage from './CurrentPage';
@@ -26,16 +25,19 @@ function App() {
     case "mountains": 
       currentPage = <Mountains/>;
       break;
-    
+    default: <Home/>;
   }
 
   return (
     <div>
       <NavbarComp  handleHome={handleHome} handleMountains={handleMountains} handleParks={handleParks} /> 
-      <div className="Scenic1 container" id="mtnsSearchContainer">   
-        <h1>Outdoor Advocate Society</h1>
-        {/* <HeroImage /> */}
-        
+      <div className="container" id="heroContainer">   
+        <div className="hero-text ">
+          <h1 id="website-title"> Nature Exploration</h1>
+        </div>
+        <div className="hero-text ">
+          <h4 id="website-subtitle">For outdoor enthusiasts</h4>
+        </div>
       </div>
       <div>
         <CurrentPage currentPage={currentPage} />

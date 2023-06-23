@@ -6,13 +6,7 @@ export default function MountainDetails ({selectedMountain}) {
     return (
         <>
         {selectedMountain ?
-        // <div>
-        //     <h4> Mountain Details </h4>
-        //     <p> Name: {selectedMountain.name}</p>
-        //     <p> Elevation: {selectedMountain.elevation}</p>
-        //     <p> Description: {selectedMountain.desc}</p>
-        //     <img src={`/assets/images/mountains/${selectedMountain.img}`} alt={`picture of ${selectedMountain.name}`} />
-        // </div>
+
         <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={`/assets/images/mountains/${selectedMountain.img}`} alt={`picture of ${selectedMountain.name}`} />
             <Card.Body>
@@ -21,12 +15,10 @@ export default function MountainDetails ({selectedMountain}) {
             <Card.Text>
                 {selectedMountain.desc}
             </Card.Text>
-            {/* <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link> */}
             </Card.Body>
         </Card>
 
-            : null}
+        : null}
         </>
         ); 
 } 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function ParkDetailsByType({ selectedType, nationalParks }) {
     const parkByType = nationalParks.filter(park => park.LocationName.includes(selectedType));

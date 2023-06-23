@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function ParkDetailsByLoc({ selectedLocation, nationalParks}) {
     const parkByLocation = nationalParks.filter(park => park.State === selectedLocation);
-    
- console.log(parkByLocation);
-
 
     return (
         <div>

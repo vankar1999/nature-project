@@ -1,19 +1,36 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,700&display=swap');
 
-img{
-  max-width: 100%;
-}
 
-.Scenic1{
-  width: 100%;
-  height: 100vh;
-}
-
-h1{
+h1 {
   text-align: center;
+
 }
 
-#mtnsSearchContainer {
+.hero-text {
+  background: rgba(214, 216, 214, 0.7);
+  border-radius: 15px;
+  /* width: fit-content; */
+  /* margin-top: 10px; */
+  /* padding-right: 12px; */
+  display: flex;
+  justify-content: center;
+}
+
+#website-title {
+  font-weight: bolder;
+  padding-top: 1em; 
+
+}
+
+#website-subtitle {
+  font-family: "Montserrat",sans-serif;
+  margin-top: .2em;
+  padding-bottom: 1em;
+  font-style: italic;
+}
+
+#heroContainer {
   /* background-image: url(/images/Liberty-StoryImage_2.jpg); */
   background-image: url(/hero-image.jpg);
   height: 500px;
