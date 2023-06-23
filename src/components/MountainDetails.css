@@ -1,0 +1,5 @@
+.mountain-card {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3em;
+}

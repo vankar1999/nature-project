@@ -1,10 +1,11 @@
 import React from 'react';
+import './ParkDetailsByLoc.css';
 
 export default function ParkDetailsByLoc({ selectedLocation, nationalParks}) {
     const parkByLocation = nationalParks.filter(park => park.State === selectedLocation);
 
     return (
-        <div>
+        <div className="park-table">
             {
                 parkByLocation.length > 0 ?
 

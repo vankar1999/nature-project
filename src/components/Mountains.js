@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import './Mountains.css';
 import SelectMountain from './SelectMountain';
 import MountainDetails from './MountainDetails'
 

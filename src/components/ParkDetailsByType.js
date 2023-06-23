@@ -1,10 +1,11 @@
 import React from 'react';
+import './ParkDetailsByType.css';
 
 export default function ParkDetailsByType({ selectedType, nationalParks }) {
     const parkByType = nationalParks.filter(park => park.LocationName.includes(selectedType));
 
     return (
-        <div>
+        <div className="park-table">
             <table>
                 <thead>
                     <tr>

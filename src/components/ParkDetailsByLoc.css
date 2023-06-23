@@ -1,0 +1,23 @@
+.park-table {
+    padding: 1em 2.5em 2em 2.5em;
+}
+
+th {
+    padding-left: .75em;
+    background-color: lightgray;
+
+}
+
+td {
+    padding: .5em .5em 1em 1em;
+
+}
+
+
+tr:nth-child(even){
+    background-color: rgb(187, 223, 235);
+ }
+
+tr:nth-child(odd){
+    background-color: rgb(232, 245, 211);
+}

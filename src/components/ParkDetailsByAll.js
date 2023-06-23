@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 
 export default function ParkDetailsByAll({ nationalParks}) {
 
     return (
-        <div>
+        <div className="park-table">
             {
                 <table>
                     <thead>
