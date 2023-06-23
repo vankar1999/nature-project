@@ -49,7 +49,7 @@ export default function Parks() {
       })
   }, []);
 
-  const categories = ['By park type', 'By location', 'By all parks'];
+  const categories = ['By park type', 'By location', 'All parks'];
 
   return (
     <div>
@@ -99,7 +99,7 @@ export default function Parks() {
           : null
       }
       {
-        selectedCategory === 'By all parks' ?
+        selectedCategory === 'All parks' ?
           <div>
             {<ParkDetailsByAll nationalParks = {nationalParks}/>
           }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './ParkDetailsByType.css';
+import './ParkDetails.css';
 
 export default function ParkDetailsByType({ selectedType, nationalParks }) {
     const parkByType = nationalParks.filter(park => park.LocationName.includes(selectedType));

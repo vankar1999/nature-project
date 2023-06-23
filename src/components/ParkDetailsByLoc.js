@@ -1,5 +1,5 @@
 import React from 'react';
-import './ParkDetailsByLoc.css';
+import './ParkDetails.css';
 
 export default function ParkDetailsByLoc({ selectedLocation, nationalParks}) {
     const parkByLocation = nationalParks.filter(park => park.State === selectedLocation);
